@@ -6,13 +6,13 @@ all: rtgen rtdump rtsort rcrack
 LDFLAGS += -L/usr/local/lib
 
 ChainWalkContext.o: ChainWalkContext.cpp
-	$(CXX) -c ChainWalkContext.cpp -I/usr/local/include -O3 -o ChainWalkContext.o
+	$(CXX) -c ChainWalkContext.cpp -I/usr/local/include -O3 -std=c++0x -o ChainWalkContext.o
 
 HashAlgorithm.o: HashAlgorithm.cpp
-	$(CXX) -c HashAlgorithm.cpp -I/usr/local/include -O3 -o HashAlgorithm.o
+	$(CXX) -c HashAlgorithm.cpp -I/usr/local/include -O3 -std=c++0x -o HashAlgorithm.o
 
 RainbowCrack.o: RainbowCrack.cpp
-	$(CXX) -c RainbowCrack.cpp -I/usr/local/include -O3 -o RainbowCrack.o
+	$(CXX) -c RainbowCrack.cpp -I/usr/local/include -O3 -std=c++0x -o RainbowCrack.o
 
 rtgen: $(OBJS)
 	$(CXX) -O3 $(LDFLAGS) Public.o ChainWalkContext.o HashAlgorithm.o HashRoutine.o RainbowTableGenerate.o -lssl -lcrypto -o rtgen
